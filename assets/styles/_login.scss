@@ -1,0 +1,22 @@
+#top-head-purple {
+  height: 8px;
+  background-color: var(--light-eggplant);
+}
+#top-head-blue {
+  height: 8px;
+  background-color: var(--mid-blue);
+}
+.login-form {
+  width: 350px;
+  margin: 0 auto;
+  padding: 100px 0;
+  form {
+    padding: 10px;
+  }
+  .logo {
+    text-align: center;
+    img {
+      width: 157px;
+    }
+  }
+}

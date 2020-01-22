@@ -1,0 +1,110 @@
+.fc th {
+    text-align: center;
+    background: var(--white);
+    height: 30px;
+    line-height: 30px;
+    color: var(--almost-black);
+    font-weight: normal;
+}
+
+.fc-scroller.fc-day-grid-container {
+    height: auto !important;
+}
+
+.fc-toolbar h2 {
+    font-size: 1.75em;
+    margin: 0;
+    text-transform: uppercase;
+    color: var(--almost-black);
+    font-weight: 600;
+}
+
+.fc-day-grid .fc-row {
+    z-index: 1;
+    height: 125px !important;
+}
+
+.fc-unthemed td.fc-today {
+    background: #f7fbff !important;
+    border-color: #ddd !important;
+}
+
+.fc-day-grid-event {
+    margin: 1px;
+    padding: 3px;
+    color: var(--white) !important;
+}
+
+.fc-dayGrid-view .fc-week-number, .fc-dayGrid-view .fc-day-number {
+    font-weight: 600;
+    padding: 7px 7px 3px !important;
+    color: var(--almost-black) !important;
+    margin: 1px;
+}
+
+.fc-unthemed .fc-divider, .fc-unthemed .fc-popover .fc-header, .fc-unthemed .fc-list-heading td {
+    background: #eee;
+    padding: 15px;
+    color: var(--almost-black);
+    font-weight: 600;
+    a.fc-list-heading-main {
+        float: right;
+        text-transform: uppercase;
+    }
+    a.fc-list-heading-alt {
+        text-transform: uppercase;
+    }
+}
+.fc-list-item-time, .fc-list-item-marker, .fc-list-item-title {
+    padding: 15px !important;
+    color: var(--almost-black);
+}
+
+.fc-time-grid-event .fc-time, .fc-time-grid-event .fc-title {
+    color: #ffffff;
+}
+
+.fc-event {
+    font-size: 1em !important;
+    line-height: 1.75em !important;
+    border-radius: 0 !important;
+}
+
+.fc-event-container {
+    cursor: pointer;
+}
+
+.fc-day-grid-event {
+    &:hover {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+}
+
+td.fc-day-top.fc-tue.fc-today .fc-day-number {
+    background-color: #c983ce;
+    color: #fff !important;
+    border-radius: 50%;
+    width: 14px;
+    text-align: center;
+}
+
+button.fc-prev-button.fc-button.fc-button-primary {
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+button.fc-next-button.fc-button.fc-button-primary {
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+button.fc-dayGridMonth-button.fc-button.fc-button-primary.fc-button-active, button.fc-dayGridMonth-button.fc-button.fc-button-primary {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+button.fc-timeGridDay-button.fc-button.fc-button-primary {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;   
+}

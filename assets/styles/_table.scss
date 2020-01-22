@@ -1,0 +1,8 @@
+// Table
+.table.b-table > thead > tr > th[aria-sort], .table.b-table > tfoot > tr > th[aria-sort] {
+  white-space: nowrap;
+  min-width: 100px;
+}
+.table th, .table td {
+  min-width: 100px;
+}

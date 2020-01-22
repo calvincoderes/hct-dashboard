@@ -1,0 +1,94 @@
+.btn-primary {
+  font-size: 13px;
+  background-color: var(--light-eggplant);
+  border-color: var(--light-eggplant);
+  font-weight: 600;
+  &:focus:not(:disabled), &.focus:not(:disabled) {
+    box-shadow: 0 0 0 0.2rem rgba(235, 187, 247, 0.52);
+  }
+  &:hover:not(:disabled) {
+    background-color: var(--grape-purple);
+    border-color: var(--grape-purple);
+  }
+}
+
+.btn-info, .btn-danger, .btn-success, .btn-secondary {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-outline-primary {
+  font-size: 13px;
+  background-color: var(--white);
+  border-color: var(--white);
+  color: var(--light-eggplant);
+  font-weight: 600;
+  &:focus:not(:disabled), &.focus:not(:disabled) {
+    box-shadow: 0 0 0 0.2rem rgba(235, 187, 247, 0.52);
+  }
+  &:hover:not(:disabled), &:active:not(:disabled) {
+    background-color: var(--light-eggplant) !important;
+    border-color: var(--light-eggplant)  !important;
+    color: var(--white)
+  }
+  &.normal-border-radius {
+    border-radius: 16px;
+  }
+  &.normal-height {
+    height: 32px;
+  }
+}
+
+.btn-lg, .btn-group-lg > .btn {
+  border-radius: 2rem;
+  padding: 1rem;
+}
+
+
+.btn-outline-primary-original {
+  font-size: 11px;
+  background-color: var(--white);
+  border-color: var(--white);
+  color: var(--black-64);
+  &:focus:not(:disabled), &.focus:not(:disabled) {
+    box-shadow: 0 0 0 0.2rem rgba(185, 190, 248, 0.52);
+  }
+  &:hover:not(:disabled), &:active:not(:disabled), &.active:not(:disabled) {
+    background-color: var(--mid-blue) !important;
+    border-color: var(--mid-blue)  !important;
+    color: var(--white);
+    font-weight: 600;
+  }
+  &.normal-border-radius {
+    border-radius: 16px;
+  }
+  &.normal-height {
+    height: 32px;
+  }
+}
+
+.btn-outline-secondary {
+  font-size: 13px;
+  background-color: var(--white);
+  border-color: var(--white);
+  color: var(--light-eggplant);
+  font-weight: 600;
+  &:focus:not(:disabled), &.focus:not(:disabled) {
+    box-shadow: 0 0 0 0.2rem rgba(235, 187, 247, 0.52);
+  }
+  &:hover:not(:disabled), &:active:not(:disabled) {
+    background-color: var(--light-eggplant) !important;
+    border-color: var(--light-eggplant)  !important;
+    color: var(--white)
+  }
+  &.normal-border-radius {
+    border-radius: 16px;
+  }
+  &.normal-height {
+    height: 32px;
+  }
+}
+
+button:disabled {
+  cursor: not-allowed !important;
+}

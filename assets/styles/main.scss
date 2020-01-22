@@ -1,0 +1,22 @@
+// Primary styles
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+@import "colors";
+@import "typography";
+@import "app";
+@import "form";
+@import "card";
+@import "buttons";
+@import "table";
+
+// Components
+@import "components/header_nav";
+@import "components/sidebar_nav";
+@import "components/fullcalendar";
+@import "components/patient_queue";
+@import "components/appointment";
+
+// Pages
+@import "login";
+@import "forgot_password";
+@import "register";
+@import "my_account";

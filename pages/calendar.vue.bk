@@ -1,0 +1,18 @@
+<template>
+  <b-row class="mb-5">
+    <b-col cols="12">
+      <full-calendar />
+    </b-col>
+  </b-row>
+</template>
+
+<script>
+export default {
+  middleware: ['authenticate'],
+  head () {
+    return {
+      title: 'Calendar'
+    }
+  },
+}
+</script>

@@ -1,0 +1,220 @@
+.headline, .headline-2, .headline-3, .small, .normal, .logo-sub,
+.accent, .logo-mark, .label-headline, .button-nav, .caption, .headline-basic, .headline-basic-07-lt-space {
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    &.semi-bold {
+        font-weight: 500 !important;
+    }
+    &.bold {
+        font-weight: bold;
+    }
+    &.left {
+        text-align: left;
+    }
+    &.center {
+        text-align: center;
+    }
+    &.right {
+        text-align: right;
+    }
+    &.justify {
+        text-align: justify;
+    }
+    &.black {
+        color: var(--black) !important;
+    }
+    &.black-88 {
+        color: var(--black-88) !important;
+    }
+    &.black-40 {
+        color: var(--black-40) !important;
+    }
+    &.black-16 {
+        color: var(--black-16) !important;
+    }
+    &.white {
+        color: #ffffff !important;
+    }
+    &.white-88 {
+        color: var(--white-88) !important;
+    }
+    &.white-40 {
+        color: var(--white-40) !important;
+    }
+    &.white-16 {
+        color: var(--white-16) !important;
+    }
+    &.brown-grey {
+        color: var(--brown-grey) !important;
+    }
+    &.black-grey {
+        color: var(--black-grey) !important;
+    }
+    &.mid-blue {
+        color: var(--mid-blue) !important;
+    }
+}
+
+.headline {
+    font-size: 34px;
+    letter-spacing: -0.21px;
+    color: var(--black);
+}
+
+.headline-2 {
+    font-size: 28px;
+    letter-spacing: -0.14px;
+    color: var(--black);
+}
+
+.headline-3 {
+    font-size: 20px;
+    letter-spacing: -0.1px;
+    color: var(--black);
+}
+
+.content-line {
+    font-size: 17px;
+    color: var(--black) !important;
+}
+
+
+.headline-4 {
+    font-size: 16px;
+    letter-spacing: -0.08px;
+    color: var(--black-88) !important;
+}
+
+.headline-5 {
+    font-size: 14px;
+    letter-spacing: -0.08px;
+    color: var(--black-88) !important;
+}
+
+.accent {
+    font-size: 24px;
+    letter-spacing: -0.12px;
+    color: var(--black);
+}
+
+.logo-mark {
+    font-size: 16px;
+    letter-spacing: -0.08px;
+    color: var(--light-eggplant) !important;
+}
+
+.label-headline {
+    font-size: 15px;
+    letter-spacing: -0.08px;
+    color: var(--black);
+}
+
+.button-nav {
+    font-size: 15px;
+    letter-spacing: -0.08px;
+    color: var(--white-40);
+    &:active {
+        color: #ffffff;
+    }
+    &:disabled {
+        color: var(--white-16);
+    }
+}
+.caption {
+    font-size: 15px;
+    letter-spacing: normal;
+    color: var(--black-40);
+}
+
+.sub-label {
+    font-size: 14px;
+    letter-spacing: normal;
+    color: var(--black-40);
+}
+
+.sub-label-64 {
+    font-size: 14px;
+    letter-spacing: normal;
+    color: var(--black-64);
+}
+
+.sub-label-88 {
+    font-size: 14px;
+    letter-spacing: normal;
+    color: var(--black-88);
+}
+
+.headline-basic {
+    font-size: 13px;
+    letter-spacing: normal;
+    color: var(--black-88);
+}
+
+.headline-basic-07-lt-space {
+    font-size: 13px;
+    letter-spacing: 0.07px;
+    color: var(--black-88);
+}
+
+.normal {
+    font-size: 12px;
+    letter-spacing: normal;
+    color: var(--black-64);
+}
+
+.logo-sub {
+    font-size: 11px;
+    letter-spacing: normal;
+    color: var(--greyish-brown);
+}
+
+.small-11 {
+    font-size: 11px;
+    letter-spacing: -0.06px;
+    color: var(--black-40);
+}
+
+.small-gb-11 {
+    font-size: 11px;
+    letter-spacing: -0.06px;
+    color: var(--greyish-brown);
+}
+
+.small-black56-11 {
+    font-size: 11px;
+    letter-spacing: -0.06px;
+    color: var(--black-56);
+}
+
+.small {
+    font-size: 10px;
+    letter-spacing: normal;
+    color: var(--brown-grey);
+}
+
+.small-black {
+    font-size: 10px;
+    letter-spacing: normal;
+    color: var(--black-88);
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.errors {
+    color: var(--orangey-red-two);
+    padding-top: 0.5rem;
+}
+
+.icon-normal-size {
+    width: 19px;
+    height: 19px;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,118 @@
+
+html,
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  color: var(--black-64);
+}
+
+.page-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  .page-content {
+    margin-left: 250px;
+    padding-top: 120px;
+  }
+}
+
+.pointer {cursor: pointer;}
+
+.addresses-icon .custom-class {
+  height: 19px;
+  width: 19px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.service-type-clinic {
+  height: 16px;
+  width: 31px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: var(--mid-blue);
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.03px;
+  text-align: center;
+  color: var(--white-88);
+}
+
+.service-type-home {
+  height: 16px;
+  width: 31px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: var(--light-indigo);
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.03px;
+  text-align: center;
+  color: var(--white-88);
+}
+
+.hscroll {
+  overflow: auto;
+  white-space: nowrap;
+
+  .patient-queue {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+
+.scrollable-card {
+  position: relative;
+  overflow-y: auto;
+  height: 400px;
+}
+
+// Date range picker
+.vue-daterange-picker {
+  width: 100%;
+}
+
+.vue-daterange-picker > .reportrange-text {
+  min-height: 1px;
+}
+
+
+// Multiselect
+.multiselect {
+  min-height: 30px !important;
+}
+
+.multiselect > .multiselect__select {
+  height: 30px !important;
+}
+
+.multiselect > .multiselect__tags {
+  padding: 0px 40px 0 8px !important;
+  min-height: 30px !important;
+}
+
+.multiselect--active > .multiselect__tags > .multiselect__input {
+  padding: 10px 0 0 5px !important;
+  font-size: 13px;
+}
+
+.multiselect > .multiselect__tags > .multiselect__tags-wrap > span, .multiselect__placeholder {
+  margin-bottom: 0px !important;
+  margin-top: 4px !important;
+}
+
+.multiselect > .multiselect__content-wrapper > .multiselect__content > .multiselect__element {
+  font-size: 13px !important;
+  height: 100vh;
+}
