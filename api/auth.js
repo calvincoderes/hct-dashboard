@@ -25,7 +25,7 @@ router.post('/login', async (req, res) => {
 
     const oauth = await callApi({
       method: 'POST',
-      url: `${process.env.REST_API_NETWORK_ENDPOINT}/assistant/auth/login/`,
+      url: `${process.env.REST_API_NETWORK_ENDPOINT}/auth/login/`,
       body,
       json: true
     })

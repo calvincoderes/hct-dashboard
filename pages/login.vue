@@ -8,7 +8,7 @@
         <img src="~assets/images/logo-login.png">
       </div>
       <div class="headline-basic text-center mb-3">
-        Service Provider Admin
+        Administrator Dashboard
       </div>
       <br class="mt-1">
       <b-form-group
@@ -52,7 +52,13 @@
       </b-form-group>
       <b-row class="mt-5 mb-5">
         <b-col cols="12 mt-2 px-5">
-          <b-button type="submit" variant="primary" block size="lg" :disabled="is_disabled">
+          <b-button
+            type="submit"
+            variant="primary"
+            block
+            size="lg"
+            :disabled="is_disabled"
+          >
             Login
           </b-button>
         </b-col>
@@ -104,6 +110,7 @@ export default {
           if (first3Chars === '09') {
             this.form.username = `+639${this.form.username.substring(2)}`
           }
+          console.log('test forms', this.form)
           this.is_disabled = true
           await this.$store.dispatch('postLogin', this.form)
           this.is_disabled = false
@@ -131,3 +138,6 @@ export default {
   }
 }
 </script>
+<style scoped>
+
+</style>

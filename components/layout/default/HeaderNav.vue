@@ -1,13 +1,13 @@
 <template>
   <header id="header-wrapper" class="clearfix mb-4">
-    <b-row>
+    <!-- <b-row>
       <b-col id="top-head-purple" cols="6">
         &nbsp;
       </b-col>
       <b-col id="top-head-blue" cols="6">
         &nbsp;
       </b-col>
-    </b-row>
+    </b-row> -->
     <b-navbar id="header-nav" toggleable="lg" class="px-5" variant="light">
       <b-navbar-brand href="/">
         <img id="brand-logo" class="float-left pr-3" src="~assets/images/logo-only.png">
@@ -86,3 +86,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.color-blue-theme {
+
+}
+</style>
