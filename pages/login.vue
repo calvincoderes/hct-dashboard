@@ -99,7 +99,7 @@ export default {
   head () {
     // Page title
     return {
-      title: 'Service Provider Assistant | Login',
+      title: 'Administrator Dashboard | Login',
     }
   },
   methods: {

@@ -169,11 +169,11 @@ export default {
     }
 
     // Location
-    const details = this.$store.getters.auth.assistant_details
-    if (details.default_location) {
-      Object.assign(params, { location_id: details.default_location })
-      this.location = details.default_location
-    }
+    // const details = this.$store.getters.auth.assistant_details
+    // if (details.default_location) {
+    //   Object.assign(params, { location_id: details.default_location })
+    //   this.location = details.default_location
+    // }
 
     this.fetch(params)
   },
