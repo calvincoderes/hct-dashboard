@@ -71,6 +71,32 @@
               />
               <!-- <b-form-select v-model="service" class="sm" :options="services" @change="handleService" /> -->
             </b-col>
+            <b-col cols="4">
+              <v-multiselect
+                v-model="location"
+                placeholder="Search for Clinic"
+                label="text"
+                track-by="value"
+                :options="locations"
+                :multiple="enableMultipleLocations"
+                @input="handleLocation"
+              />
+              <!-- <b-form-select v-model="service" class="sm" :options="services" @change="handleService" /> -->
+            </b-col>
+          </b-row>
+          <b-row class="mt-2">
+            <b-col cols="3">
+              <v-multiselect
+                v-model="appointmentType"
+                placeholder="Search for Type"
+                label="text"
+                track-by="value"
+                :options="appointmentTypes"
+                :multiple="false"
+                @input="handleAppointmentTypes"
+              />
+              <!-- <b-form-select v-model="service" class="sm" :options="services" @change="handleService" /> -->
+            </b-col>
             <b-col cols="6">
               <form
                 method="post"
@@ -198,12 +224,21 @@ export default {
         monthNames: moment.monthsShort(), // array of month names - see moment documenations for details
         firstDay: 1 // ISO first day of week - see moment documenations for details
       },
+      appointmentType: '',
+      appointmentTypes: [
+        { value: 'online', text: 'Online' },
+        { value: 'walk-in', text: 'Walk-in' },
+        { value: 'online', text: 'Manual' }
+      ],
       search: '',
       fields: [],
       items: [],
       perPage: 10,
       service: [],
       services: [],
+      location: [],
+      locations: [],
+      enableMultipleLocations: false,
       status: [],
       currentPage: 1,
       totalPages: 1,
@@ -225,6 +260,7 @@ export default {
       if (this.$route.query.service_ids) {
         const services = this.$route.query.service_ids.split(',')
         const serviceIds = []
+        console.log('test value', services)
         for (const key in services) {
           serviceIds.push(parseInt(services[key]))
         }
@@ -234,11 +270,38 @@ export default {
             this.service.push({ value: this.services[key].value, text: this.services[key].text })
           }
         }
+        console.log('final service', this.service)
+      }
+    }
+
+    // get location list
+    await this.$store.dispatch('fetchLocations', { per_page: 50 })
+    const fetchedClinics = this.$store.getters.fetchedLocations
+    if (fetchedClinics.status === 'FULFILLED') {
+      const locationData = fetchedClinics.res.results
+      for (const index in locationData) {
+        this.locations.push({ value: locationData[index].id, text: locationData[index].name })
+      }
+
+      if (this.$route.query.location_ids) {
+        const locations = this.$route.query.location_ids.split(',')
+        const locationIds = []
+        console.log('test value', locations)
+        for (const key in locations) {
+          locationIds.push(parseInt(locations[key]))
+        }
+
+        for (const key in this.locations) {
+          if (locationIds.includes(this.locations[key].value)) {
+            this.locations.push({ value: this.locations[key].value, text: this.locations[key].text })
+          }
+        }
       }
     }
   },
   mounted () {
     // Fetch data on-load
+    console.log('route', this.$route.query)
     this.fetch(this.$route.query)
     // this.status = this.status.split(',')
     if (this.$route.query.statuses) {
@@ -274,13 +337,20 @@ export default {
     // Custom Fetch function, use to manipulate records
     async fetch (params = {}) {
       // fetch method came from vuex store actions
-      const assistantDetails = this.$store.getters.auth.assistant_details
+      console.log('test nag fetch', params.location_ids[0])
       let ordering = '-date_to'
       if (params.ordering) { ordering = (params.ordering.split(',')[0] + ',-date_to') }
 
       params.ordering = ordering
-      params.location_id = assistantDetails.default_location
 
+      if (params.location_ids) {
+        // hack until appointment accepts multiple location ids
+        params.location_id = params.location_ids[0] || ''
+      } else {
+        params.location_id = ''
+      }
+
+      console.log('final params for fetch', params)
       await this.$store.dispatch('fetchAppointments', params)
       // fetched results came from vuex store getters
       const fetched = this.$store.getters.fetchedAppointments
@@ -374,6 +444,40 @@ export default {
       this.fetch({
         ...this.$route.query,
         service_ids: serviceCodes,
+      })
+    },
+    handleLocation (location) {
+      let locationCodes = []
+
+      if (this.enableMultipleLocations === true) {
+        for (const key in location) {
+          console.log('etestetse', location[key].value)
+          locationCodes.push(location[key].value)
+        }
+
+        if (locationCodes && locationCodes.length > 0) {
+          locationCodes = locationCodes.join()
+        }
+      } else {
+        console.log(location)
+        if (location) {
+          locationCodes.push(location.value)
+        }
+      }
+
+      this.fetch({
+        ...this.$route.query,
+        location_ids: locationCodes,
+      })
+    },
+    handleAppointmentTypes (type) {
+      let appointmentType = ''
+      if (type) {
+        appointmentType = type.value
+      }
+      this.fetch({
+        ...this.$route.query,
+        appointment_type: appointmentType,
       })
     },
     // Page Change Handler

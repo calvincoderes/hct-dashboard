@@ -6,8 +6,8 @@ const endpoint = process.env.REST_API_ENDPOINT
 // CONSTANTS
 const API = {
   AssistantServices: {
-    FETCH: `${endpoint}/assistant/services/`,
-    RETRIEVE: `${endpoint}/assistant/services/%s/`,
+    FETCH: `${endpoint}/user/services/`,
+    RETRIEVE: `${endpoint}/user/services/%s/`,
     CREATE: `${endpoint}/assistant/services/`,
     UPDATE: `${endpoint}/assistant/services/%s/`,
     DELETE: `${endpoint}/assistant/services/%s/`

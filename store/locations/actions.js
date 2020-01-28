@@ -6,11 +6,11 @@ const endpoint = process.env.REST_API_ENDPOINT
 // CONSTANTS
 const API = {
   Locations: {
-    FETCH: `${endpoint}/assistant/locations/`,
-    RETRIEVE: `${endpoint}/assistant/locations/%s/`,
-    CREATE: `${endpoint}/assistant/locations/`,
-    UPDATE: `${endpoint}/assistant/locations/%s/`,
-    DELETE: `${endpoint}/assistant/locations/%s/`
+    FETCH: `${endpoint}/locations/`,
+    RETRIEVE: `${endpoint}/locations/%s/`,
+    CREATE: `${endpoint}/locations/`,
+    UPDATE: `${endpoint}/locations/%s/`,
+    DELETE: `${endpoint}/locations/%s/`
   }
 }
 
