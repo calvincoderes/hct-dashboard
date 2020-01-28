@@ -46,6 +46,7 @@ export default {
     { src: '@/plugins/draggable', ssr: false },
     { src: '@/plugins/full-calendar', ssr: false },
     { src: '@/plugins/tel-input', ssr: false },
+    { src: '@/plugins/chart', ssr: false },
   ],
   /*
   ** Nuxt.js dev-modules
