@@ -68,7 +68,7 @@
               No Data Available
             </div>
           </div>
-          <div class="charts">
+          <div class="charts mt-4">
             <div class="grid">
               <ChartDoughnut
                 v-if="typeRecordLoaded"
