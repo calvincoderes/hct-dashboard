@@ -6,7 +6,7 @@
           <b-row v-if="$store.getters.retrievedAppointment.status === 'FULFILLED'" class="mt-4 mb-5">
             <left-side-details :appointment="$store.getters.retrievedAppointment.res" />
           </b-row>
-          <b-row>
+          <!-- <b-row>
             <b-col v-if="item.provider" xl="12" lg="12">
               <patient-queue
                 :single-provider="true"
@@ -19,13 +19,13 @@
                 }"
               />
             </b-col>
-          </b-row>
+          </b-row> -->
 
           <b-row class="mt-4">
             <b-col xl="12" lg="12">
               <nuxt-link to="/dashboard/">
                 <b-button variant="primary" size="lg" block>
-                  Go to Queue Records
+                  Go to Dashboard
                 </b-button>
               </nuxt-link>
             </b-col>
@@ -200,7 +200,7 @@
                                 CLOSED
                               </b-badge>
                             </template>
-                            <b-row>
+                            <!-- <b-row>
                               <b-col v-if="item.status !== 'cancelled' && item.status !== 'closed'" xl="12" lg="12" class="mt-3">
                                 <b-button variant="outline-danger" @click="cancelAppointment">
                                   Cancel
@@ -209,7 +209,7 @@
                                   Close Appointment
                                 </b-button>
                               </b-col>
-                            </b-row>
+                            </b-row> -->
                           </b-col>
                           <!-- <b-col v-if="item.user.is_active === true" xl="12" lg="12" class="headline-basic" style="color: #5bdf6f;">
                             <check-circle-icon size="1x" class="custom-class" />&nbsp;Registered
@@ -342,9 +342,9 @@
                           max-rows="10"
                         />
                       </b-form-group>
-                      <b-button variant="outline-primary" size="lg" block :disabled="is_disabled" type="submit">
+                      <!-- <b-button variant="outline-primary" size="lg" block :disabled="is_disabled" type="submit">
                         Update
-                      </b-button>
+                      </b-button> -->
                     </form>
                   </b-col>
                 </b-row>
@@ -353,7 +353,7 @@
                   <b-col xl="12" lg="12" class="headline-basic-07-lt-space brown-grey bold">
                     DOCTOR'S ATTACHMENTS
                   </b-col>
-                  <b-col xl="12" lg="12" class="mt-2">
+                  <!-- <b-col xl="12" lg="12" class="mt-2">
                     <dropzone
                       id="files"
                       ref="files"
@@ -362,7 +362,7 @@
                       @vdropzone-sending="sendingEvent"
                       @vdropzone-queue-complete="queueComplete"
                     />
-                  </b-col>
+                  </b-col> -->
                 </b-row>
 
                 <b-row class="mt-4">
@@ -490,10 +490,10 @@
 </template>
 <script>
 import $ from 'jquery'
-import Dropzone from 'nuxt-dropzone'
+// import Dropzone from 'nuxt-dropzone'
 // import LeftSideServiceProvider from '~/components/module_templates/appointments/LeftSideServiceProvider.vue'
 import LeftSideDetails from '~/components/module_templates/appointments/LeftSideDetails.vue'
-import PatientQueue from '~/components/patient_queue/PatientQueue.vue'
+// import PatientQueue from '~/components/patient_queue/PatientQueue.vue'
 import 'nuxt-dropzone/dropzone.css'
 
 const endpoint = process.env.REST_API_ENDPOINT
@@ -502,8 +502,8 @@ export default {
   components: {
     // LeftSideServiceProvider,
     LeftSideDetails,
-    PatientQueue,
-    Dropzone
+    // PatientQueue,
+    // Dropzone
   },
   data () {
     return {
