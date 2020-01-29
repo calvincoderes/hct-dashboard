@@ -69,7 +69,7 @@
             </div>
           </div>
           <div class="charts mt-4">
-            <div class="grid">
+            <div class="grid" style="width:40%">
               <ChartDoughnut
                 v-if="typeRecordLoaded"
                 :title="doughnutTitle"
@@ -211,12 +211,12 @@ export default {
         const params = {
           ...this.$route.query,
         }
-        // Location
-        const details = this.$store.getters.auth.assistant_details
-        if (details.default_location) {
-          Object.assign(params, { location_id: details.default_location })
-          this.location = details.default_location
-        }
+        // // Location
+        // const details = this.$store.getters.auth.assistant_details
+        // if (details.default_location) {
+        //   Object.assign(params, { location_id: details.default_location })
+        //   this.location = details.default_location
+        // }
         this.fetch(params)
       }
     }
@@ -249,7 +249,7 @@ export default {
   },
   mounted () {
     this.currentDate = moment(new Date()).format('YYYY-MM-DD')
-    this.minDate = moment(new Date()).format('YYYY-MM-DD')
+    // this.minDate = moment(new Date()).format('YYYY-MM-DD')
 
     // Fetch data on-load
     const params = {
