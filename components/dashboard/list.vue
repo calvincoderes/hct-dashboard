@@ -1,7 +1,15 @@
 <template>
   <div>
+    <b-row>
+      <b-col xl="12" class="text-center">
+        <div v-if="currentDate" class="headline">
+          Today is {{ currentDate | prettifyDate('Do of MMMM YYYY') }}
+        </div>
+      </b-col>
+    </b-row>
+
     <b-row class="mt-4">
-      <b-col xl="3">
+      <!-- <b-col xl="3">
         <vue-ctk-date-time-picker
           id="date-selector"
           v-model="currentDate"
@@ -17,7 +25,7 @@
           :no-clear-button="true"
           :no-label="true"
         />
-      </b-col>
+      </b-col> -->
       <!-- <b-col xl="6">
         <SearchField search-place-holder="Search name of Service Providers" @searchValue="onSearch" />
       </b-col> -->
@@ -33,14 +41,6 @@
           @input="handleLocation"
         />
         <!-- <b-form-select v-model="service" class="sm" :options="services" @change="handleService" /> -->
-      </b-col>
-    </b-row>
-
-    <b-row>
-      <b-col xl="12" class="text-center">
-        <div v-if="currentDate" class="headline">
-          Today is {{ currentDate | prettifyDate('Do of MMMM YYYY') }}
-        </div>
       </b-col>
     </b-row>
 
