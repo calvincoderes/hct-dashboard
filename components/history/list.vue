@@ -92,7 +92,7 @@
                 label="text"
                 track-by="value"
                 :options="appointmentTypes"
-                :multiple="false"
+                :multiple="true"
                 @input="handleAppointmentTypes"
               />
               <!-- <b-form-select v-model="service" class="sm" :options="services" @change="handleService" /> -->
@@ -228,7 +228,7 @@ export default {
       appointmentTypes: [
         { value: 'online', text: 'Online' },
         { value: 'walk-in', text: 'Walk-in' },
-        { value: 'online', text: 'Manual' }
+        { value: 'manual', text: 'Manual' }
       ],
       search: '',
       fields: [],
@@ -238,7 +238,7 @@ export default {
       services: [],
       location: [],
       locations: [],
-      enableMultipleLocations: false,
+      enableMultipleLocations: true,
       status: [],
       currentPage: 1,
       totalPages: 1,
@@ -337,7 +337,6 @@ export default {
     // Custom Fetch function, use to manipulate records
     async fetch (params = {}) {
       // fetch method came from vuex store actions
-      console.log('test nag fetch', params.location_ids[0])
       let ordering = '-date_to'
       if (params.ordering) { ordering = (params.ordering.split(',')[0] + ',-date_to') }
 
@@ -345,9 +344,11 @@ export default {
 
       if (params.location_ids) {
         // hack until appointment accepts multiple location ids
-        params.location_id = params.location_ids[0] || ''
+        if (!this.enableMultipleLocations) {
+          params.location_id = params.location_ids[0] || ''
+        }
       } else {
-        params.location_id = ''
+        params.location_ids = ''
       }
 
       console.log('final params for fetch', params)
@@ -451,7 +452,6 @@ export default {
 
       if (this.enableMultipleLocations === true) {
         for (const key in location) {
-          console.log('etestetse', location[key].value)
           locationCodes.push(location[key].value)
         }
 
@@ -464,20 +464,30 @@ export default {
           locationCodes.push(location.value)
         }
       }
-
+      console.log('multiple dapat', locationCodes)
       this.fetch({
         ...this.$route.query,
         location_ids: locationCodes,
       })
     },
     handleAppointmentTypes (type) {
-      let appointmentType = ''
-      if (type) {
-        appointmentType = type.value
+      // let appointmentType = ''
+      // if (type) {
+      //   appointmentType = type.value
+      // }
+      let appointmentTypes = []
+
+      for (const key in type) {
+        appointmentTypes.push(type[key].value)
       }
+
+      if (appointmentTypes && appointmentTypes.length > 0) {
+        appointmentTypes = appointmentTypes.join()
+      }
+      console.log('multiple dapat', appointmentTypes)
       this.fetch({
         ...this.$route.query,
-        appointment_type: appointmentType,
+        appointment_types: appointmentTypes,
       })
     },
     // Page Change Handler
