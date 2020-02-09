@@ -9,7 +9,75 @@
     </b-row>
 
     <b-row class="mt-4">
-      <!-- <b-col xl="3">
+      <b-col xl="12">
+        <b-tabs content-class="mt-3">
+          <b-tab id="overall-data-tab" title="Overall Data" active>
+            <b-row class="filter-rows">
+              <b-col cols="4" style="padding-top:7px;">
+                <v-multiselect
+                  v-model="location"
+                  placeholder="Search for Clinic"
+                  label="text"
+                  track-by="value"
+                  :options="locations"
+                  :multiple="enableMultipleLocations"
+                  class="location-select"
+                  @input="handleLocation"
+                />
+                <!-- <b-form-select v-model="service" class="sm" :options="services" @change="handleService" /> -->
+              </b-col>
+            </b-row>
+            <!-- FAILED REQUEST HANDLER -->
+            <b-row v-if="$store.getters.fetchedAppointments.status === 'REJECTED'" class="result-row mt-5">
+              <b-col xl="12" lg="12">
+                <b-alert variant="danger" show>
+                  Oops, something went wrong...
+                </b-alert>
+              </b-col>
+            </b-row>
+            <!-- FAILED REQUEST HANDLER -->
+
+            <b-row v-if="$store.getters.fetchedAppointments.status === 'PENDING'">
+              <b-col xl="12" lg="12" class="text-center">
+                <b-spinner style="width: 3rem; height: 3rem;" variant="primary" label="Spinning" />
+              </b-col>
+            </b-row>
+
+            <b-row v-if="$store.getters.fetchedAppointments.status === 'FULFILLED' && currentDate">
+              <b-col cols="12 p-0">
+                <div class="hscroll">
+                  <div v-if="!$store.getters.fetchedAppointments.res.length">
+                    <div class="headline brown-grey center mt-3">
+                      No Data Available
+                    </div>
+                  </div>
+                  <div class="charts mt-4">
+                    <div class="grid" style="width:40%">
+                      <ChartDoughnut
+                        v-if="typeRecordLoaded"
+                        :title="doughnutTitle"
+                        :online="onlineTypesRecord"
+                        :walkin="walkinTypesRecord"
+                        :manual="manualTypesRecord"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </b-col>
+            </b-row>
+          </b-tab>
+          <b-tab id="data-per-clinic-tab" title="Data per Clinic">
+            <p>I'm the second tab</p>
+          </b-tab>
+          <b-tab title="Coming soon!" disabled>
+            <p>I'm a disabled tab!</p>
+          </b-tab>
+        </b-tabs>
+      </b-col>
+    </b-row>
+
+    <!-- <b-row class="mt-4"> -->
+    <!-- <b-col xl="3">
         <vue-ctk-date-time-picker
           id="date-selector"
           v-model="currentDate"
@@ -26,10 +94,10 @@
           :no-label="true"
         />
       </b-col> -->
-      <!-- <b-col xl="6">
+    <!-- <b-col xl="6">
         <SearchField search-place-holder="Search name of Service Providers" @searchValue="onSearch" />
       </b-col> -->
-      <b-col cols="4" style="padding-top:7px;">
+    <!-- <b-col cols="4" style="padding-top:7px;">
         <v-multiselect
           v-model="location"
           placeholder="Search for Clinic"
@@ -39,22 +107,22 @@
           :multiple="enableMultipleLocations"
           class="location-select"
           @input="handleLocation"
-        />
-        <!-- <b-form-select v-model="service" class="sm" :options="services" @change="handleService" /> -->
-      </b-col>
-    </b-row>
+        /> -->
+    <!-- <b-form-select v-model="service" class="sm" :options="services" @change="handleService" /> -->
+    <!-- </b-col>
+    </b-row> -->
 
     <!-- FAILED REQUEST HANDLER -->
-    <b-row v-if="$store.getters.fetchedAppointments.status === 'REJECTED'" class="mt-5">
+    <!-- <b-row v-if="$store.getters.fetchedAppointments.status === 'REJECTED'" class="mt-5">
       <b-col xl="12" lg="12">
         <b-alert variant="danger" show>
           Oops, something went wrong...
         </b-alert>
       </b-col>
-    </b-row>
+    </b-row> -->
     <!-- FAILED REQUEST HANDLER -->
 
-    <b-row v-if="$store.getters.fetchedAppointments.status === 'PENDING'">
+    <!-- <b-row v-if="$store.getters.fetchedAppointments.status === 'PENDING'">
       <b-col xl="12" lg="12" class="text-center">
         <b-spinner style="width: 3rem; height: 3rem;" variant="primary" label="Spinning" />
       </b-col>
@@ -78,8 +146,8 @@
                 :manual="manualTypesRecord"
               />
             </div>
-          </div>
-          <!-- <patient-queue
+          </div> -->
+    <!-- <patient-queue
             v-for="item in filteredItems"
             :key="item.id"
             :refresh="providerSelected && item.id === providerSelected.id ? makeid(32) : false"
@@ -92,9 +160,9 @@
               in_clinic: item.in_clinic
             }"
           /> -->
-        </div>
+    <!-- </div>
       </b-col>
-    </b-row>
+    </b-row> -->
 
     <!-- <b-row v-if="$store.getters.fetchedServiceProviders.status === 'FULFILLED' && currentDate">
       <b-col cols="12 p-0">
