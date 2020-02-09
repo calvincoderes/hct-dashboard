@@ -3,12 +3,12 @@
     <b-col cols="12" xl="12" lg="12">
       <b-row>
         <b-col xs="12" lg="12" class="headline">
-          Clinic Records
+          Reports
         </b-col>
       </b-row>
       <b-row>
         <b-col xs="12" lg="12" class="caption">
-          {{ count }} Appointment Records
+          {{ count }} Records
         </b-col>
       </b-row>
       <b-row class="mt-5">

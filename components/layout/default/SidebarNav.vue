@@ -43,7 +43,7 @@ export default {
         },
         {
           href: '/history',
-          title: 'Clinic Records',
+          title: 'Reports',
           theme: 'fas',
           icon: 'history',
         }
