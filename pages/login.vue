@@ -5,7 +5,7 @@
       @submit.prevent="handleSubmit"
     >
       <div class="logo mb-3">
-        <img src="~assets/images/logo-login.png">
+        <img src="~assets/images/kalu.svg">
       </div>
       <div class="headline-basic text-center mb-3">
         Administrator Dashboard
